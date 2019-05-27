@@ -14,6 +14,37 @@ sudo ./install_server.sh
 sudo systemctl start redis_6379
 sudo systemctl status redis_6379
 redis-cli -p 6379
+
 #redis installation is completed.
+# Bind IP address 
+
+vim /etc/redis/6379.conf
+
+# on line number 71 add external IP address like this 
+
+bind 127.0.0.1 10.0.2.15
+
+#Save and exit
+
+systemctl restart redis_6379
+
+# To verify its working or not use given commads 
+
+telnet 10.0.2.15 6379
+or
+netstat -plntu | grep 6379
+# You should get output like this 
+
+tcp        0      0 10.0.2.15:6379          0.0.0.0:*               LISTEN      12663/redis-server 
+tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      12663/redis-server 
+#############################################################################################################
+## How set password in redis 
+#uncomment 509 line number and set your password like this
+requirepass yourpassword
+save and exit
+
+
+
+
 
 
