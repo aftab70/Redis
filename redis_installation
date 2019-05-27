@@ -1,1 +1,19 @@
-http://grainier.net/how-to-install-redis-in-ubuntu/
+#http://grainier.net/how-to-install-redis-in-ubuntu/
+
+sudo apt-get update -y
+sudo apt-get install build-essential -y
+sudo apt-get install tcl8.5 -y
+wget http://download.redis.io/releases/redis-5.0.5.tar.gz
+tar xzf redis-5.0.5.tar.gz
+cd redis-5.0.5
+make
+make test
+sudo make install
+cd utils
+sudo ./install_server.sh
+sudo systemctl start redis_6379
+sudo systemctl status redis_6379
+redis-cli -p 6379
+#redis installation is completed.
+
+
