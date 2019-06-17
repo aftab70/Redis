@@ -1,4 +1,4 @@
-#http://grainier.net/how-to-install-redis-in-ubuntu/
+# Reference URL - http://grainier.net/how-to-install-redis-in-ubuntu/
 
 sudo apt-get update -y
 sudo apt-get install build-essential -y
@@ -16,37 +16,36 @@ sudo systemctl status redis_6379
 redis-cli -p 6379
 
 #redis installation is completed.
-# Bind IP address 
 
-vim /etc/redis/6379.conf
+Now need to make chages in redis configuration files path vim /etc/redis/6379.conf
 
-# on line number 71 add external IP address like this 
+--------------------------------------------------------------------------------------
+BIND IP configuration for example 
 
-bind 127.0.0.1 10.0.2.15
+bind 127.0.0.1 0.0.0.0
 
-#Save and exit
+--------------------------------------------------------------------------------------
 
-systemctl restart redis_6379
+Password configuration
 
-# To verify its working or not use given commads 
+requirepass PASSWORD 
 
-telnet 10.0.2.15 6379
-or
-netstat -plntu | grep 6379
-# You should get output like this 
+--------------------------------------------------------------------------------------
 
-tcp        0      0 10.0.2.15:6379          0.0.0.0:*               LISTEN      12663/redis-server 
-tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      12663/redis-server 
-#############################################################################################################
-## How set password in redis 
-#uncomment 509 line number and set your password like this
-requirepass yourpassword
-save and exit
+DATABASES Index configuration for example 
 
-Save 1 1
-database value
-passwaord
-Bind IP
+databases 100
+
+--------------------------------------------------------------------------------------
+
+Need to configure save param for example default value 
+
+save 900 1
+save 300 10
+save 60 10000
+
+--------------------------------------------------------------------------------------
+
 
 
 
