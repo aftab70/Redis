@@ -1,0 +1,20 @@
+What is redis ?
+
+Redis is open source in memory  data structure store which can be used as a database and message broker 
+No SQL / Key value store 
+Supports multiple database structures
+Built in replication
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Redis data types 
+
+* string
+* lists
+* Sets 
+* Sorted sets 
+* Hashes 
+* Bitmaps
+* Hyperlogs
+* Geospatial indexes
+
+------------------------------------------------------------------------------------------------------------------------------------------
