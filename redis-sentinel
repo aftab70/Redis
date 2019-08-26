@@ -1,0 +1,2 @@
+apt-get --purge remove redis
+apt-get install redis-sentinel
