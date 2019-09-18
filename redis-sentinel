@@ -1,6 +1,8 @@
 apt-get --purge remove redis
 apt-get install redis-sentinel
 
+./redis-server ../sentinel.conf --sentinel &
+
 --------------------------------------------------- Redis Sentinel cluster testing -------------------------------------------
 
 Reference url - https://lzone.de/cheat-sheet/Redis%20Sentinel
