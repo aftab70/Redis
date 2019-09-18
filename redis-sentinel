@@ -31,9 +31,30 @@ Force failover
 
 sentinel failover <your cluster id>
 
---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------- Sentinel configuration --------------------------------------------------
+
+vim redis-5.0.5/sentinel.conf
+
+Add the following setting in sentinel 
+
+    bind 192.168.0.1
+    port 16379
+    sentinel monitor redis-cluster 192.167.0.1 6379 2
+    sentinel down-after-milliseconds redis-cluster 5000
+    sentinel parallel-syncs redis-cluster 1
+    sentinel failover-timeout redis-cluster 10000
+    daemonize yes
+    pidfile "/var/run/redis/sentinel_6379.pid"
+    dir "/var/redis/6379"
 
 
+------------------------------------------------------------------------------------------------------------------------------
+
+./redis-server ../sentinel.conf --sentinel &
+
+Enjoy.......
 
 
 
