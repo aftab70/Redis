@@ -44,11 +44,31 @@ save 900 1
 save 300 10
 save 60 10000
 
---------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
+-------------------------------------------------- Docker Redis installation ------------------------------------------------
 
+#!/bin/bash
 
+set -x 
+set -e
 
+apt update && apt install vim -y
+apt-get install build-essential -y
+apt-get install tcl8.5 -y
+apt install wget -y
+wget http://download.redis.io/releases/redis-5.0.5.tar.gz
+apt install make
+apt install gcc -y
+cd redis-5.0.5
+apt install build-essential
+make
+tar xzf redis-5.0.5.tar.gz
+cd redis-5.0.5
+make
+make test
+make install
+cd utils/
+./install_server.sh
 
-
-
+-----------------------------------------------------------------------------------------------------------------------------
