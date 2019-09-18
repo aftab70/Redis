@@ -62,10 +62,6 @@ apt install make
 apt install gcc -y
 tar -xzvf redis-5.0.5.tar.gz
 cd redis-5.0.5
-apt install build-essential
-make
-tar xzf redis-5.0.5.tar.gz
-cd redis-5.0.5
 make
 make test
 make install
