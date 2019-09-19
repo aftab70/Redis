@@ -53,7 +53,7 @@ save 60 10000
 set -x 
 set -e
 
-apt update && apt install vim -y
+apt update && apt install vim net-tools -y
 apt-get install build-essential -y
 apt-get install tcl8.5 -y
 apt install wget -y
